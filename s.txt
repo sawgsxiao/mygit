@@ -1,0 +1,80 @@
+JAVA_HOME=/root/java/java8
+JRE_HOME=$JAVA_HOME/jre
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME
+CLASSPATH=.:$JRE_HOME/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+TOMCAT_HOME=/root/apache-tomcat-8.0.30
+
+JAVA_HOME=/root/java/java8  
+JAVA_OPTS="-server -Xms512m 
+-Xmx1024m -XX:PermSize=600M
+-XX:MaxPermSize=600m
+-Dcom.sun.management.jmxremote"
+
+//playplugin repostory
+
+resolvers += "Play2war plugins release" at "http://repository-play-war.forge.cloudbees.com/release/"
+
+120.24.49.116
+晟仓项目的阿里云服务器已经申请了。
+一台是应用服务器，一台是数据库(直接申请的数据库)。
+
+
+阿里云的登录用户名及密码：
+oraclexiao@139.com / sc@20151129
+
+应用服务器用户名、密码
+ root / Spark@20151129
+
+accesskey：	149	
+secretkey：	e97af7debe1834a455363755e04a19d872684363
+
+Select surancename ,
+ELT(INTERVAL(CONV(HEX(left(CONVERT(surancename USING gbk),1)),16,10),
+0xB0A1,0xB0C5,0xB2C1,0xB4EE,0xB6EA,0xB7A2,0xB8C1,0xB9FE,0xBBF7,
+0xBFA6,0xC0AC,0xC2E8,0xC4C3,0xC5B6,0xC5BE,0xC6DA,0xC8BB,0xC8F6,
+0xCBFA,0xCDDA,0xCEF4,0xD1B9,0xD4D1),
+'A','B','C','D','E','F','G','H','J','K','L','M','N','O','P',
+'Q','R','S','T','W','X','Y','Z') as PY 
+FROM cc_surance_product where not SUBSTR(surancename ,1,1) REGEXP "[u0391-uFFE5]"
+union all
+Select surancename ,UPPER(SUBSTR(surancename ,1,1))
+ as PY 
+FROM cc_surance_product where SUBSTR(surancename ,1,1) REGEXP "[u0391-uFFE5]"
+
+#JS JSON
+			var pinpai=[];
+			
+			
+			$("#master-index_list").find("dl").find("dd").find("a").each(function(i,a){
+				var json={};
+				json.name=$(a).text();
+				json.url=$(a).find("img").attr("src");
+				pinpai.push(json);
+				console.log(json);
+			});
+			console.log(JSON.stringify(eval(pinpai)))
+
+android universalimageloader
+
+
+delete from cc_city where id in (
+select tt.id from (
+select t.id,name,rank from (
+SELECT
+	id,
+	NAME,
+
+IF (
+	@pa = cc.`name` ,@rank :=@rank + 1 ,@rank := 1
+) AS rank ,@pa := cc.`name`
+FROM
+	(
+		SELECT
+			id,
+			NAME
+		FROM
+			cc_city
+		ORDER BY
+			NAME,id
+	) cc,
+	(SELECT @rank := 0 ,@pa = NULL) a) t where rank >1)tt)
